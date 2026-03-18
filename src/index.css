@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 39 45% 60%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 39 45% 60%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 39 45% 60%;
+
+    --radius: 0.75rem;
+
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-highlight: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%);
+    --glow-cyan: 39 45% 60%;
+    --glow-purple: 0 0% 18%;
+
+    --sidebar-background: 220 25% 5%;
+    --sidebar-foreground: 220 10% 96%;
+    --sidebar-primary: 195 80% 55%;
+    --sidebar-primary-foreground: 220 25% 6%;
+    --sidebar-accent: 220 15% 13%;
+    --sidebar-accent-foreground: 220 10% 96%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 195 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(195 80% 55% / 0.3);
+    color: hsl(220 10% 96%);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative rounded-2xl overflow-hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--glass-highlight);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .glass-button {
+    @apply relative px-8 py-4 rounded-full font-medium transition-all duration-300;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-button-primary {
+    @apply glass-button;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    color: hsl(var(--background));
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+
+  .glass-button-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.4), 0 0 80px hsl(var(--secondary) / 0.15);
+  }
+
+  .glass-button-ghost {
+    @apply glass-button;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: hsl(var(--foreground));
+  }
+
+  .glass-button-ghost:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.1);
+  }
+
+  .grid-background {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .glow-node {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .section-spacing {
+    @apply py-14 md:py-14 lg:py-14 px-4 md:px-8;
+  }
+
+  .skill-bar-gradient {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.4);
+  }
+
+  .skill-card-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.08);
+    border-color: hsl(var(--primary) / 0.15);
+  }
+
+  .road-glow-line {
+    height: 100%;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--primary)));
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.5);
+  }
+
+  .gallery-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery-card:hover {
+    transform: scale(1.02) perspective(800px) rotateX(2deg);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.1);
+  }
+}
