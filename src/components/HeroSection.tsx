@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
+import Colony from "@/assets/Colony.pdf";
+import Corridor from "@/assets/Corridor.pdf";
 
 const CityScene = lazy(() => import("./CityScene"));
 
@@ -43,7 +45,7 @@ const HeroSection = () => {
       {/* Grid background overlay */}
       <div className="absolute inset-0 z-[1] grid-background opacity-20 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 max-w-7xl mx-auto w-full mt-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,12 +55,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="font-mono text-primary tracking-[0.3em] uppercase text-xs md:text-sm mb-6 block md:mt-10"
+            className="font-mono text-primary tracking-[0.3em] uppercase text-xs md:text-sm mb-6 block "
           >
             SHRIJI INFRA AND CONSULTANCY
           </motion.span>
 
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.85] mb-8">
+          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.85] mb-5">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,24 +83,39 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-xl mb-5 leading-relaxed"
           >
             Civil Engineering (B tech) ,Urban Planner (T&CP) <br /> Designing sustainable cities, smarter infrastructure, and future-ready urban environments.
           </motion.p>
 
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <a href="#projects" className="glass-button-primary text-center">
-              View Projects
+            <a
+              href={Colony}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-button-primary text-center"
+            >
+              Explore Colony Layout →
             </a>
-            <a href="#contact" className="glass-button-ghost text-center">
+
+            <a
+              href={Corridor}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-button-ghost text-center"
+            >
+              Explore Corridor Design →
+            </a>
+
+            {/* <a href="#contact" className="glass-button-ghost text-center">
               Contact Me
-            </a>
-          </motion.div> */}
+            </a> */}
+          </motion.div>
         </motion.div>
       </div>
 

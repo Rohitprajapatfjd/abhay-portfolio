@@ -2,11 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import imageOne from "@/assets/imageOne.png";
 import imgSecond from "@/assets/imgSecond.jpg";
-import imgThird from "@/assets/imgThird.jpg";
+import imgNine from "@/assets/imgNine.jpg";
 import imgFourth from "@/assets/imgFourth.jpg";
 import imgFive from "@/assets/imgFive.jpg";
-import imgSix from "@/assets/imgSix.png";
-import imgSeven from "@/assets/imgSeven.png";
+import imgSix from "@/assets/imgSix.jpg";
+import imgSeven from "@/assets/imgSeven.jpg";
 import imgEight from "@/assets/imgEight.jpg";
 
 const categories = ["All", "GIS Maps", "Urban Zoning", "Corridor Planning", "Road Planning", "Infrastructure", "Regional Planning"];
@@ -14,7 +14,7 @@ const categories = ["All", "GIS Maps", "Urban Zoning", "Corridor Planning", "Roa
 const placeholders = [
   { id: 1, category: "GIS Maps", label: "Urban Zoning Map", aspect: "4/3", image: imageOne },
   { id: 2, category: "Urban Zoning", label: "GIS Spatial Analysis", aspect: "3/4", image: imgSecond },
-  { id: 3, category: "Road Planning", label: "Road Infrastructure Layout", aspect: "4/3", image: imgThird },
+  { id: 3, category: "Road Planning", label: "Road Infrastructure Layout", aspect: "4/3", image: imgNine },
   { id: 4, category: "Corridor Planning", label: "Corridor Development Plan", aspect: "16/9", image: imgFourth },
   { id: 5, category: "Infrastructure", label: "Urban Design Visualization", aspect: "4/3", image: imgFive },
   { id: 6, category: "GIS Maps", label: "Regional Planning Map", aspect: "3/4", image: imgSix },
@@ -112,12 +112,7 @@ const GallerySection = () => {
               className="glass-card w-full max-w-2xl aspect-video flex items-center justify-center"
             >
               <div className="relative z-10 text-center p-8">
-                <svg className="w-16 h-16 text-muted-foreground/20 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-muted-foreground">
-                  {placeholders.find((p) => p.id === lightbox)?.label}
-                </p>
+                <img src={placeholders.find((p) => p.id === lightbox)?.image} alt={placeholders.find((p) => p.id === lightbox)?.label} className="text-muted-foreground/20 mx-auto mb-4" />
                 <p className="text-xs font-mono text-muted-foreground/50 mt-2">Click anywhere to close</p>
               </div>
             </motion.div>

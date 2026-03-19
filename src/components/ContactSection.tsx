@@ -1,15 +1,27 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
+import emailjs from "emailjs-com";
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder – wire to backend later
-    alert("Message sent! (Demo)");
-    setForm({ name: "", email: "", message: "" });
+
+    emailjs.send(
+      "service_0u25uia",
+      "template_x41lp0c",
+      form,
+      "QqnmlRIa8-RtGnEbw"
+    )
+    .then(() => {
+      alert("Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+    })
+    .catch(() => {
+      alert("Failed to send message");
+    });
   };
+
 
   return (
     <section id="contact" className="section-spacing relative">
