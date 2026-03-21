@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const skills = [
-  { name: "QGIS", level: 90, icon: "🗺️" },
+  { name: "QGIS", level: 98, icon: "🗺️" },
   { name: "ArcGIS", level: 85, icon: "🌐" },
   { name: "AutoCAD", level: 92, icon: "📐" },
   { name: "Revit", level: 78, icon: "🏗️" },
