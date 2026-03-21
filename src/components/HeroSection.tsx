@@ -75,7 +75,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="text-gradient block"
             >
-              Varma.
+              Varma
             </motion.span>
           </h1>
 
